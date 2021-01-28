@@ -1,0 +1,96 @@
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.cubeCommon {
+  width: 33%;
+  height: 33%;
+  background-color: #77628c;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.cube1 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  .cubeCommon;
+}
+
+.cube2 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  .cubeCommon;
+}
+
+.cube3 {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  .cubeCommon;
+}
+
+.cube4 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+  .cubeCommon;
+}
+
+.cube5 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  .cubeCommon;
+}
+
+.cube6 {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  .cubeCommon;
+}
+
+.cube7 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  .cubeCommon;
+}
+
+.cube8 {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+  .cubeCommon;
+}
+
+.cube9 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  .cubeCommon;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%,
+  70%,
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  35% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+  }
+}
