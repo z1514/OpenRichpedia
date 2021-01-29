@@ -24,6 +24,7 @@ import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unr
 import config from './config';
 // var cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
   // send entire app down. Process manager will restart it
@@ -121,14 +122,41 @@ app.use(
 // -----------------------------------------------------------------------------
 
 // app.use(cors());
-//app.use('www.Richpedia.com',createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
-//app.use('/Richpedia', createProxyMiddleware({ target: 'http://10.201.69.197:10040/repositories/', changeOrigin: true }));
-app.use('/Richpedia', createProxyMiddleware({ target: 'http://120.77.215.39:10040/repositories/', changeOrigin: true }));
-app.use('/w3cnote',createProxyMiddleware({ target: 'https://www.runoob.com/', changeOrigin: true }));
-app.use('/api/VisualLink',createProxyMiddleware({target: 'http://120.77.215.39:5001/', changeOrigin: true,pathRewrite:{'^/api':'/'}}))
-//app.use('/', createProxyMiddleware({ target: 'http://www.baidu.com', changeOrigin: true }));
-//app.use('/Richpedia', createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
-//app.use('/Richpedia', createProxyMiddleware({ target: 'https://www.google.com', changeOrigin: true }));
+// app.use('www.Richpedia.com',createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
+// app.use('/Richpedia', createProxyMiddleware({ target: 'http://10.201.69.197:10040/repositories/', changeOrigin: true }));
+app.use(
+  '/Richpedia',
+  createProxyMiddleware({
+    target: 'http://120.77.215.39:10040/repositories/',
+    changeOrigin: true,
+  }),
+);
+app.use(
+  '/w3cnote',
+  createProxyMiddleware({
+    target: 'https://www.runoob.com/',
+    changeOrigin: true,
+  }),
+);
+app.use(
+  '/api/VisualLink',
+  createProxyMiddleware({
+    target: 'http://120.77.215.39:5001/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '/' },
+  }),
+);
+app.use(
+  '/api/dealImage',
+  createProxyMiddleware({
+    target: 'http://120.77.215.39:5001/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '/' },
+  }),
+);
+// app.use('/', createProxyMiddleware({ target: 'http://www.baidu.com', changeOrigin: true }));
+// app.use('/Richpedia', createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
+// app.use('/Richpedia', createProxyMiddleware({ target: 'https://www.google.com', changeOrigin: true }));
 app.get('*', async (req, res, next) => {
   try {
     const css = new Set();
@@ -196,7 +224,6 @@ app.get('*', async (req, res, next) => {
     next(err);
   }
 });
-
 
 //
 // Error handling

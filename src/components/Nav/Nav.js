@@ -1,7 +1,7 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import { Menu } from 'antd';
-import s from '../Uploader/node_modules/antd/dist/antd.css';
+import s from 'antd/dist/antd.css';
 
 class Nav extends React.Component {
   state = {
