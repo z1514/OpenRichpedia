@@ -154,9 +154,38 @@ app.use(
     pathRewrite: { '^/api': '/' },
   }),
 );
-// app.use('/', createProxyMiddleware({ target: 'http://www.baidu.com', changeOrigin: true }));
-// app.use('/Richpedia', createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
-// app.use('/Richpedia', createProxyMiddleware({ target: 'https://www.google.com', changeOrigin: true }));
+app.use(
+  '/api/linkImage',
+  createProxyMiddleware({
+    target: 'http://120.77.215.39:5001/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '/' },
+  }),
+);
+app.use(
+  '/api/Example',
+  createProxyMiddleware({
+    target: 'http://120.77.215.39:5001/',
+    changeOrigin: true,
+    pathRewrite: { '^/api': '/' },
+  }),
+);
+// app.use(
+//   '/api/VisualLink',
+//   createProxyMiddleware({
+//     target: 'http://127.0.0.1:5001/',
+//     changeOrigin: true,
+//     pathRewrite: { '^/api': '/' },
+//   }),
+// );
+// app.use(
+//   '/api/dealImage',
+//   createProxyMiddleware({
+//     target: 'http://127.0.0.1:5001/',
+//     changeOrigin: true,
+//     pathRewrite: { '^/api': '/' },
+//   }),
+// );
 app.get('*', async (req, res, next) => {
   try {
     const css = new Set();

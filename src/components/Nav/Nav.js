@@ -24,7 +24,7 @@ class Nav extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="Sparql">Sparql</Menu.Item>
-        <Menu.Item key="entitylink">Entity Link</Menu.Item>
+        <Menu.Item key="entitylink">Multi-Modal Entity Linking</Menu.Item>
       </Menu>
     );
   }

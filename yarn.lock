@@ -1119,6 +1119,13 @@
     react-is "^16.8.0"
     react-transition-group "^4.3.0"
 
+"@material-ui/icons@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.npm.taobao.org/@material-ui/icons/download/@material-ui/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+  integrity sha1-s6c1MmZRnNdDtkYa6f38sbJetMU=
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/lab@^4.0.0-alpha.53":
   version "4.0.0-alpha.53"
   resolved "https://registry.npm.taobao.org/@material-ui/lab/download/@material-ui/lab-4.0.0-alpha.53.tgz#8bb53f970861130413feec50a1d3202ec5c45f2c"
@@ -6699,11 +6706,6 @@ iterall@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
-
-jQuery@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.npm.taobao.org/jQuery/download/jQuery-1.7.4.tgz#f32dc5c85a7044ee864b4443b9ee45f9478ba137"
-  integrity sha1-8y3FyFpwRO6GS0RDue5F+UeLoTc=
 
 jest-changed-files@^24.9.0:
   version "24.9.0"

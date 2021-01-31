@@ -13,8 +13,10 @@
     "not ie < 9"
   ],
   "dependencies": {
+    "@ant-design/icons": "^4.4.0",
     "@babel/polyfill": "^7.7.0",
     "@material-ui/core": "^4.9.12",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.53",
     "@material/menu": "^6.0.0",
     "antd": "^4.11.0",
@@ -35,7 +37,6 @@
     "http-proxy": "^1.18.1",
     "http-proxy-middleware": "^1.0.3",
     "isomorphic-style-loader": "^5.1.0",
-    "jQuery": "^1.7.4",
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.3.0",
     "less-loader": "^7.3.0",

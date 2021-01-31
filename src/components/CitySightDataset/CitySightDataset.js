@@ -4,6 +4,7 @@ import withStyles from 'isomorphic-style-loader/withStyles';
 import { Cascader } from 'antd';
 import { IoMdHelpCircle } from 'react-icons/io';
 import { TiArrowBackOutline } from 'react-icons/ti';
+import se from 'antd/dist/antd.css';
 import s from './CitySightDataset.less';
 import Spinner from '../Spinner/Spinner';
 import CityPictureCard from '../CityPictureCard/CityPictureCard';
@@ -17,21 +18,21 @@ import getPicByCityId from '../../../data_operation/city_sight/getPicByCityId';
 import getPicBySightId from '../../../data_operation/city_sight/getPicBySightId';
 import getCityTextById from '../../../data_operation/city_sight/getCityTextById';
 
-
 class CitySightDataset extends React.Component {
   constructor() {
     super();
     this.state = {
       isLoading: true,
-      //cityID: '',
+      // cityID: '',
       sightID: '',
-      //cityName: 'default',
+      // cityName: 'default',
       sightName: 'default',
       picList: [],
       picNum: 0,
     };
   }
-//
+
+  //
   componentDidMount() {
     this.setState({
       isLoading: false,
@@ -40,20 +41,20 @@ class CitySightDataset extends React.Component {
 
   onSelectChange = value => {
     window.stop();
-    //const city = getCityNameById(value[0]);
-    //const sight = getSightNameById(value[1]);
+    // const city = getCityNameById(value[0]);
+    // const sight = getSightNameById(value[1]);
     const sight = getCityNameById(value[0]);
     let list = [];
     let number = 0;
     if (sight === 'default') {
       list = [];
       number = 0;
-    } 
+    }
     // else if (sight === 'default') {
     //   const { picList, num } = getPicByCityId(value[0]);
     //   list = picList;
     //   number = num;
-    // } 
+    // }
     else {
       const { picList, num } = getPicByCityId(value[0]);
       list = picList;
@@ -66,16 +67,15 @@ class CitySightDataset extends React.Component {
       picNum: number,
     });
   };
-//
+
+  //
   getPromptText = () => (
     <div>
       <div className={s.promptText}>
         <a href="/dataset" className={s.goBack}>
           <TiArrowBackOutline />
         </a>
-        <span>
-          Select a sight to get knowledge of Richpedia Dataset.
-        </span>
+        <span>Select a sight to get knowledge of Richpedia Dataset.</span>
       </div>
       <div className={s.noteText}>
         Note: Since the whole dataset is giant in scale and amount, what we show
@@ -98,9 +98,9 @@ class CitySightDataset extends React.Component {
       </div>
     </div>
   );
-//
-  getSelecter = () => (
 
+  //
+  getSelecter = () => (
     <Cascader
       options={sightInfo}
       onChange={this.onSelectChange}
@@ -122,54 +122,50 @@ class CitySightDataset extends React.Component {
   };
 
   getCitySightInfo = () => {
-    //const { cityName, sightName, cityID, sightID } = this.state;
+    // const { cityName, sightName, cityID, sightID } = this.state;
     const { sightName, sightID } = this.state;
     if (sightName === 'default') {
       return null;
     }
 
-    else{
-      // city only
-      const {
-        geo,
-        ab,
-        wikilink,
-        dblink,
-      } = getCityTextById(sightID);
+    // city only
+    const { geo, ab, wikilink, dblink } = getCityTextById(sightID);
 
-      return (
-        <div className={s.infoTextBox}>
-          <div style={{ minWidth: '60%',lineHeight:'25px'}}>
-            <div>
-              <span className={s.infoLabel}>Sight_id:</span>
-              <span className={s.infoValue}>{sightID}</span>
-            </div>
-            <div>
-              <span className={s.infoLabel}>Name:</span>
-              <span className={s.infoValue}>{sightName}</span>
+    return (
+      <div className={s.infoTextBox}>
+        <div style={{ minWidth: '60%', lineHeight: '25px' }}>
+          <div>
+            <span className={s.infoLabel}>Sight_id:</span>
+            <span className={s.infoValue}>{sightID}</span>
+          </div>
+          <div>
+            <span className={s.infoLabel}>Name:</span>
+            <span className={s.infoValue}>{sightName}</span>
             <div>
               <span className={s.infoLabel}>Wikidata_link:</span>
-              <span className={s.infoValue}><a href={wikilink}>{wikilink}</a></span>
-            </div>
-            </div>
-            <div>
-              <span className={s.infoLabel}>Dbpedia_link:</span>
               <span className={s.infoValue}>
-                <a href={dblink}>{dblink}</a>
+                <a href={wikilink}>{wikilink}</a>
               </span>
             </div>
-            <div style={{textJustify:'auto'}}>
-              <span className={s.infoLabel}>Abstract:</span>
-              <span className={s.infoValue}>{ab}</span>
-            </div>
-            <div>
-              <span className={s.infoLabel}>Geology Position:</span>
-              <span className={s.infoValue}>{geo}</span>
-            </div>
+          </div>
+          <div>
+            <span className={s.infoLabel}>Dbpedia_link:</span>
+            <span className={s.infoValue}>
+              <a href={dblink}>{dblink}</a>
+            </span>
+          </div>
+          <div style={{ textJustify: 'auto' }}>
+            <span className={s.infoLabel}>Abstract:</span>
+            <span className={s.infoValue}>{ab}</span>
+          </div>
+          <div>
+            <span className={s.infoLabel}>Geology Position:</span>
+            <span className={s.infoValue}>{geo}</span>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
+
     // console.log(sightID);
     // sightID.replace("http://rich.wangmengsd.com/resource/","rps:");
 
@@ -206,13 +202,13 @@ class CitySightDataset extends React.Component {
     const { picList, picNum, sightName } = this.state;
     if (sightName === 'default')
       // return <div className={s.emptyPicBox}>Please select city or sight.</div>;
-      return <div className={s.emptyPicBox}></div>;
-    else {
-      // city only
-      if (picNum) return this.showCityPictures(picList);
-    }
+      return <div className={s.emptyPicBox} />;
+
+    // city only
+    if (picNum) return this.showCityPictures(picList);
+
     // if (picNum) return this.showSightPictures(picList);
-    return <div className={s.emptyPicBox}></div>;
+    return <div className={s.emptyPicBox} />;
   };
 
   showCityPictures = pic_list => {
