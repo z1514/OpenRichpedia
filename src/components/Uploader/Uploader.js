@@ -67,6 +67,7 @@ class Uploader extends React.Component {
       'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
     uploading: false,
     showPreview: false,
+    rate: 1
   };
 
   sendExample = name => {
@@ -93,7 +94,7 @@ class Uploader extends React.Component {
         obj.setState({
           src: result.img,
           resultSrc: result.img_wbb,
-          value: 'font',
+          value: result.wikiCap,
           fall:
             'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
           uploading: false,
@@ -119,13 +120,14 @@ class Uploader extends React.Component {
         visible={this.state.showTest}
         onOk={this.handleTest}
         onCancel={this.handleTest}
-        width={1000}
+        width={800}
       >
         <div className="site-card-wrapper">
           <Row gutter={24}>
             <Col span={6}>
               <Card title="Ex 1" bordered>
-                <Image src="data/imgs/10.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/21717.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Francis Condon in the early 20th Century</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -133,7 +135,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('10.jpg');
+                    this.sendExample('21717.jpg');
                   }}
                 >
                   Test
@@ -142,7 +144,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 2" bordered>
-                <Image src="data/imgs/18711.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/39497.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Bush (left) with Harry S. Truman (center) and James B. Conant (right)</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -150,7 +153,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('18711.jpg');
+                    this.sendExample('39497.jpg');
                   }}
                 >
                   Test
@@ -159,7 +162,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 3" bordered>
-                <Image src="data/imgs/15050.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/27515.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>George, Lord Bingham, at age 14</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -167,7 +171,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('15050.jpg');
+                    this.sendExample('27515.jpg');
                   }}
                 >
                   Test
@@ -176,7 +180,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 4" bordered>
-                <Image src="data/imgs/15050.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/15111.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Chiezō Kataoka in the poster for Bloody Spear at Mount Fuji (1955).</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -184,7 +189,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('15050.jpg');
+                    this.sendExample('15111.jpg');
                   }}
                 >
                   Test
@@ -195,7 +200,8 @@ class Uploader extends React.Component {
           <Row gutter={24}>
             <Col span={6}>
               <Card title="Ex 5" bordered>
-                <Image src="data/imgs/10.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/37662.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Humphrey alongside Coretta Scott King and Civil Rights Leader Dr. Martin Luther King Jr.</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -203,7 +209,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('10.jpg');
+                    this.sendExample('37662.jpg');
                   }}
                 >
                   Test
@@ -212,7 +218,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 6" bordered>
-                <Image src="data/imgs/10.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/31679.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Berisha celebrating Brisbane's 2012 A-League Grand Final win in 2012.</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -220,7 +227,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('10.jpg');
+                    this.sendExample('31679.jpg');
                   }}
                 >
                   Test
@@ -229,7 +236,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 7" bordered>
-                <Image src="data/imgs/18711.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/1028.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Ocean's 11 with Buddy Lester, Joey Bishop, Sammy Davis, Jr., Frank Sinatra, and Dean Martin.</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -237,7 +245,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('18711.jpg');
+                    this.sendExample('1028.jpg');
                   }}
                 >
                   Test
@@ -246,7 +254,8 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 8" bordered>
-                <Image src="data/imgs/15050.jpg" fallback={this.state.fall} />
+                <Image src="data/imgs/45262.jpg" fallback={this.state.fall} />
+                <p style={{fontSize:'5px'}}>Hitler in 1942 with his long-time lover, Eva Braun, whom he married on 29 April 1945</p>
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -254,7 +263,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('15050.jpg');
+                    this.sendExample('45262.jpg');
                   }}
                 >
                   Test
@@ -370,7 +379,7 @@ class Uploader extends React.Component {
         });
         console.log(obj.state.filename);
         console.log('处理成功');
-        // obj.handleClear();
+        // obj.handleClhandleClear();
       },
       error(error) {
         console.log('Apply部分');
@@ -437,6 +446,7 @@ class Uploader extends React.Component {
   handleClear = () => {
     this.setState({
       filename: '',
+      value:""
     });
     const up = document.getElementById('file');
     up.value = '';
@@ -459,7 +469,7 @@ class Uploader extends React.Component {
           style={{ margin: '0 5px 0 0' }}
           onClick={this.handleDetect}
         >
-          Detection
+          Object Detection
         </Button>
         <Button
           type="primary"
@@ -467,7 +477,7 @@ class Uploader extends React.Component {
           style={{ margin: '0 5px 0 5px' }}
           onClick={this.handleLink}
         >
-          Linking
+          Entity Linking
         </Button>
         <Button
           type="primary"
@@ -522,14 +532,14 @@ class Uploader extends React.Component {
             color: '#77628c',
           }}
         >
-          Title
+            Caption
         </h2>
         <TextArea
           id="textArea"
           style={{ display: 'block', width: '800px', margin: '10px 20px' }}
           value={this.state.value}
           onChange={this.onChange}
-          placeholder="请输入标题"
+          placeholder="Please enter the caption"
           autoSize={{ minRows: 3, maxRows: 9 }}
         />
         <h2
@@ -686,7 +696,7 @@ class Uploader extends React.Component {
   getDetect() {
     return (
       <Modal
-        title="Entity Detect"
+        title="Entity Detection"
         visible={this.state.showDetect}
         onOk={this.handleDetectOk}
         onCancel={this.handleDetectCancel}
@@ -749,10 +759,11 @@ class Uploader extends React.Component {
       });
     }
 
+
     return (
       <Modal
         width={1000}
-        title="Link Result"
+        title="Linking Result"
         visible={this.state.showLink}
         onOk={this.handleLinkOk}
         onCancel={this.handleLinkCancel}
@@ -762,6 +773,7 @@ class Uploader extends React.Component {
           src={this.state.resultSrc}
           fallback={this.state.fall}
         />
+        {/* <canvas id="myCanvas" width="500" height="500" style="border: 0px"></canvas> */}
         {/* <Table onRow={(record)=>{
           console.log(record);
         }} size='small' bordered columns={columns} dataSource={data} /> */}
