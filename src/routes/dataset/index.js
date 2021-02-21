@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import HeaderMenu from '../../components/HeaderMenu/HeaderMenu';
 import CitySightDataset from '../../components/CitySightDataset/CitySightDataset';
 import PeopleDataset from '../../components/PeopleDataset/PeopleDataset';
+import 'antd/dist/antd.css';
 
 async function action({ params }) {
   const { datatype } = params;

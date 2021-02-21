@@ -1,10 +1,11 @@
 /* eslint-disable react/no-did-mount-set-state,camelcase */
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import withStyles from 'isomorphic-style-loader/withStyles';
-import {Cascader} from 'antd';
+import { Cascader } from 'antd';
 import { IoMdHelpCircle } from 'react-icons/io';
 import { TiArrowBackOutline } from 'react-icons/ti';
+import Casd from '../Casd/Casd';
 import s from './PeopleDataset.less';
 import Spinner from '../Spinner/Spinner';
 import PeoplePictureCard from '../PeoplePictureCard/PeoplePictureCard';
@@ -82,15 +83,16 @@ class PeopleDataset extends React.Component {
   );
 
   getSelecter = () => (
-    <Cascader
-      options={peopleInfo}
-      onChange={this.onSelectChange}
-      placeholder="Please select"
-      changeOnSelect
-      size="middle"
-      bordered="true"
-      expandTrigger="hover"
-    />
+    // <Cascader
+    //   options={peopleInfo}
+    //   onChange={this.onSelectChange}
+    //   placeholder="Please select"
+    //   changeOnSelect
+    //   size="middle"
+    //   bordered="true"
+    //   expandTrigger="hover"
+    // />
+    <Casd options={peopleInfo} onChange={this.onSelectChange} />
   );
 
   getPicNum = () => {
@@ -147,8 +149,7 @@ class PeopleDataset extends React.Component {
 
   getPictures = () => {
     const { picList, picNum, peopleName } = this.state;
-    if (peopleName === 'default')
-      return <div className={s.emptyPicBox}></div>;
+    if (peopleName === 'default') return <div className={s.emptyPicBox} />;
     if (picNum) return this.showPeoplePictures(picList);
     return null;
   };

@@ -5,8 +5,9 @@ import { Cascader } from 'antd';
 import { IoMdHelpCircle } from 'react-icons/io';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import se from 'antd/dist/antd.css';
-import s from './CitySightDataset.less';
+import s from './CitySightDataset.css';
 import Spinner from '../Spinner/Spinner';
+import Casd from '../Casd/Casd';
 import CityPictureCard from '../CityPictureCard/CityPictureCard';
 import SightPictureCard from '../SightPictureCard/SightPictureCard';
 import sightInfo from '../../../data_src/city_sight/city_sight';
@@ -101,15 +102,16 @@ class CitySightDataset extends React.Component {
 
   //
   getSelecter = () => (
-    <Cascader
-      options={sightInfo}
-      onChange={this.onSelectChange}
-      placeholder="Please select"
-      changeOnSelect
-      size="middle"
-      bordered="true"
-      expandTrigger="hover"
-    />
+    // <Cascader
+    //   options={sightInfo}
+    //   onChange={this.onSelectChange}
+    //   placeholder="Please select"
+    //   changeOnSelect
+    //   size="middle"
+    //   bordered="true"
+    //   expandTrigger="hover"
+    // />
+    <Casd options={sightInfo} onChange={this.onSelectChange} />
   );
 
   getPicNum = () => {
