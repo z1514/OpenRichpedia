@@ -14,7 +14,7 @@
 }
 
 .root {
-  background: #090252;
+  background: #f8f9fa;
   color: #fff;
 }
 
@@ -25,9 +25,11 @@
 }
 
 .brand {
-  color: color(var(--brand-color) lightness(+10%));
+  /* color: color(var(--brand-color) lightness(+10%)); */
+  color:#7c7c7d;
   text-decoration: none;
   font-size: 1.75em; /* ~28px */
+  font-weight: 400;
 }
 
 .brandTxt {

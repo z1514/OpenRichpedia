@@ -21,9 +21,9 @@ export default function Header() {
     <div className={s.root} >
       <div className={s.container} >
         <Navigation />
-        <Link className={s.brand} to="/">
+        <a className={s.brand} href="/">
           <span className={s.brandTxt}>RichPedia</span>
-        </Link>
+        </a>
       </div>
     </div>
   );

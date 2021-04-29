@@ -17,15 +17,15 @@ export default function Navigation() {
   useStyles(s);
   return (
     <div className={s.root} role="navigation">
+      <a className={s.link} href="/sparql">
+        Home
+      </a>
       <a className={s.link} href="/download">
         Download
       </a>
-      <a className={s.link} href="/sparql">
-        SPARQL
-      </a>
-      <a className={s.link} href="/dataset">
+      {/* <a className={s.link} href="/dataset">
         Query
-      </a>
+      </a> */}
       <a className={s.link} href="/tutorial">
         Tutorial
       </a>
