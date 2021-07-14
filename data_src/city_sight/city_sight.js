@@ -1,4 +1,4 @@
-const citySight = [{value:"Q1006586",label: "Sun_City,_Arizona",},
+const citySight = [{value:"Q1006586",label: "Sun_City,_Arizona"},
  {value:"Q1013134",label: "Monschau_Castle",},
  {value:"Q1024747",label: "Cabaret_Voltaire_(band)",},
  {value:"Q1025339",label: "Gulangyu_Island",},

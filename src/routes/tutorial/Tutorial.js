@@ -8,6 +8,10 @@ import step2 from './resource/step2.jpg';
 import step3 from './resource/step3.jpg';
 import step4 from './resource/step4.jpg';
 import step5 from './resource/step5.jpg';
+import step6 from './resource/step6.jpg';
+import step7 from './resource/step7.jpg';
+import step8 from './resource/step8.jpg';
+import step9 from './resource/step9.jpg';
 
 
 
@@ -25,11 +29,11 @@ class Tutorial extends React.Component {
     });
   }
 
-  getTutorial = () => (
+  getQuery = () => (
     <div className={s.textRoot}>
       <p>
         {'  '}First, open the{' '}
-        <a href="/dataset" target="__blank">
+        <a href="/" target="__blank">
           webpage
         </a>.
       </p>
@@ -37,63 +41,117 @@ class Tutorial extends React.Component {
         <img src={step1} alt="step1" className={s.exampleImg} />
       </div>
       <p>
-        {'  '}On this page, you can select city and/or sight to get knowledge of{' '}
+      {'  '}Then click the Query card, open the Query page. On this page, you can select city and/or sight to get knowledge of{' '}
         Richpedia Dataset.
-      </p>
-      <p>
-        {'  '}For example, select <span className={s.strong}>Ankara</span> as{' '}
-        city. Once you{"'"}ve done with choosing the city, you can immediately{' '}
-        see images having relationship{' '}
-        <span className={s.strong}>rp:imageof</span> with the city you just{' '}
-        selected.
       </p>
       <div>
         <img src={step2} alt="step2" className={s.exampleImg} />
       </div>
       <p>
-        {'  '}You might already find out that you can interact with the pictures{' '}
-        listed below when you have your mouse cursor hovering on them. Click{' '}
-        your mouse and a modal with relationship information would pop up on{' '}
-        this page. However, since the large dataset has been filtered to a way{' '}
-        more smaller scale, we only have a small amount of the relationship{' '}
-        <span className={s.strong}>rp:contain</span> which usually shows up with{' '}
-        images of the cities.
-      </p>
-      <p>
-        {'  '}This is an example of relationship{' '}
-        <span className={s.strong}>rp:contain</span> with a picture of city{' '}
-        <span className={s.strong}>Tokyo</span> which image ID is{' '}
-        <span className={s.strong}>rp:022510</span>.
+        {'  '}For example, select <span className={s.strong}>Coroico</span> as{' '}
+        city. Once you{"'"}ve done with choosing the city, you can immediately{' '}
+        see related images and text knowledge like wikidata_id, abstract and geology position.{' '}
       </p>
       <div>
         <img src={step3} alt="step3" className={s.exampleImg} />
       </div>
       <p>
-        {'  '}If you would like to dive deeper into the dataset, you may try{' '}
-        choosing a sight within the city you{"'"}ve chosen. In this case, we{' '}
-        select <span className={s.strong}>Ankara Castle</span> as our sight.
+        {'  '}The same operation is also applied to the people page.
       </p>
-      <div>
-        <img src={step4} alt="step4" className={s.exampleImg} />
-      </div>
-      <p>
-        {'  '}Click on any picture of a sight, you can get information about{' '}
-        other pictures having the relationship{' '}
-        <span className={s.strong}>rp:sameAs</span> with this one. For example:
-      </p>
-      <div>
-        <img src={step5} alt="step5" className={s.exampleImg} />
-      </div>
     </div>
   );
+
+  getSparql = () =>(<div className={s.textRoot}>
+  <p>
+    {'  '}Open the{' '}
+    <a href="/" target="__blank">
+      webpage
+    </a>.
+  </p>
+  <div>
+    <img src={step1} alt="step1" className={s.exampleImg} />
+  </div>
+  <p>
+  {'  '}Then click the SPARQL card, open the SPARQL page. On this page, you can find a sparql search box and sparql examples.
+  </p>
+  <div>
+    <img src={step4} alt="step4" className={s.exampleImg} />
+  </div>
+  <p>
+    {'  '}You can enter the examples in this page, like {'\n'}
+    <span className={s.strong}>{"'SELECT ?s ?p ?o { ?s <rpo:imageof> <http://rich.wangmengsd.com/resource/rps/282>}"}</span> 
+    and click excute. Then the page will return the sparql query results. For this example, it will return images of resource 282. 
+  </p>
+  <div>
+    <img src={step5} alt="step5" className={s.exampleImg} />
+  </div>
+</div>)
+
+getRelation= ()=>(<div className={s.textRoot}>
+  <p>
+    {'  '}Open the{' '}
+    <a href="/" target="__blank">
+      webpage
+    </a>.
+  </p>
+  <div>
+    <img src={step1} alt="step1" className={s.exampleImg} />
+  </div>
+  <p>
+  {'  '}Then open the relation extraction page. On this page, You can click upload button to upload your image or click the 
+  example button to use our examples images to do relation extraction. Then you can click relation extraction button to see the results.
+  </p>
+  <div>
+    <img src={step8} alt="step8" className={s.exampleImg} />
+  </div>
+  <p>
+    {'  '}For example, you can click example button and select one of the examples. Then you can click relation extraction to see entity 
+    detection and relation extraction results. 
+  </p>
+  <div>
+    <img src={step9} alt="step9" className={s.exampleImg} />
+  </div>
+</div>)
+
+getLink = () => (<div className={s.textRoot}>
+  <p>
+    {'  '}Open the{' '}
+    <a href="/" target="__blank">
+      webpage
+    </a>.
+  </p>
+  <div>
+    <img src={step1} alt="step1" className={s.exampleImg} />
+  </div>
+  <p>
+  {'  '}Then open the visual entity linking page. On this page, you can find a text box and an image button. You can click upload button to upload your image or click the 
+  example button to use our examples images and captions to do entity linking. 
+  </p>
+  <div>
+    <img src={step6} alt="step6" className={s.exampleImg} />
+  </div>
+  <p>
+    {'  '}For example, you can click example button and select one of the examples. Then you can click obect detection and 
+  entity linking button to see object detection and entity linking results.
+  </p>
+  <div>
+    <img src={step7} alt="step7" className={s.exampleImg} />
+  </div>
+</div>)
 
   getContent = () => (
     <div>
       {/* <HeaderMenu /> */}
       <div className={s.root}>
         <h1 className={s.title}>Tutorial</h1>
-        <h2 className={s.subTitle}>Online Query</h2>
-        {this.getTutorial()}
+        <h2 className={s.subTitle}>Query</h2>
+        {this.getQuery()}
+        <h2 className={s.subTitle}>SPARQL</h2>
+        {this.getSparql()}
+        <h2 className={s.subTitle}>Visual Entity Linking</h2>
+        {this.getLink()}
+        <h2 className={s.subTitle}>Relation Extraction</h2>
+        {this.getRelation()}
       </div>
     </div>
   );

@@ -17,6 +17,8 @@ import Paper from '@material-ui/core/Paper';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Uploader from '../../components/Uploader/Uploader';
 import Dataset from '../dataset/Dataset';
+import Visualization from '../visualization/Visualization';
+import Relation from '.../../components/Relation/Relation'
 import Nav from '../../components/Nav/Nav';
 // import ECharts from '../../components/ECharts/ECharts'
 import s from './Sparql.less';
@@ -33,6 +35,8 @@ class Sparql extends React.Component {
       sparqlS: s.navLinkActive,
       linkS: s.navLink,
       queryS: s.navLink,
+      visualS: s.navLink,
+      relationS: s.navLink,
       isQuerying: false,
       num: 100,
       message: 'SELECT ?s ?p ?o { ?s <rpo:sameAs> ?o . }',
@@ -68,22 +72,46 @@ class Sparql extends React.Component {
       this.setState({
         sparqlS: s.navLinkActive,
         linkS: s.navLink,
-        queryS: s.navLink
+        queryS: s.navLink,
+        visualS: s.navLink,
+        relationS:s.navLink
       });
     }
     else if (e === 'Link') {
       this.setState({
         sparqlS: s.navLink,
         linkS: s.navLinkActive,
-        queryS: s.navLink
+        queryS: s.navLink,
+        visualS: s.navLink,
+        relationS:s.navLink
       });
     }
-    else {
+    else if(e ==='Query'){
       this.setState({
         sparqlS: s.navLink,
         linkS: s.navLink,
-        queryS: s.navLinkActive
-      })
+        queryS: s.navLinkActive,
+        visualS: s.navLink,
+        relationS:s.navLink
+      });
+    }
+    else if(e === 'Visual'){
+      this.setState({
+        sparqlS: s.navLink,
+        linkS: s.navLink,
+        queryS: s.navLink,
+        visualS: s.navLinkActive,
+        relationS:s.navLink
+      });
+    }
+    else{
+      this.setState({
+        sparqlS: s.navLink,
+        linkS: s.navLink,
+        queryS: s.navLink,
+        visualS: s.navLink,
+        relationS:s.navLinkActive
+      });
     }
   };
 
@@ -542,6 +570,14 @@ class Sparql extends React.Component {
           <a className={this.state.queryS} onClick={() => this.handleClick("Query")} href='#query'>Query
           </a>
         </li>
+        <li>
+          <a className={this.state.visualS} onClick={() => this.handleClick("Visual")} href='#visual'>Visualization
+          </a>
+        </li>
+        <li>
+          <a className={this.state.relationS} onClick={() => this.handleClick("Relation")} href='#relation'>Relation
+          </a>
+        </li>
       </ul>
     );
   };
@@ -554,13 +590,39 @@ class Sparql extends React.Component {
     return <Dataset />
   }
 
+  getVisualization = () => {
+    if(typeof document === 'undefined')
+    {
+      ;
+    }
+    else{
+    return <Visualization/>}
+  }
+
+  getRelation = () => {
+    return <Relation />
+  }
+
   
   getHome = () => {
     return (<div className={s.cardsRow}>
       <div className={s.myCard} >
         <div className={s.ppCard}>
           <div className={s.CardHeader}>
-            <a href="#sparql" className={s.textMuted} onClick={() => this.handleHomeClick("Sparql")}>
+            <a href="/tutorial" className={s.textMuted}>
+              <h5 className={s.cardTitle} align="center"> Tutorial </h5></a>
+            <h6 className={s.cardSubTitile} align="center">
+            Tutorial will show how to use Richpedia.
+            </h6>
+            <center><img className={s.cardsImg} width="80%" src="tutorial.png" /></center>
+
+          </div>
+        </div>
+      </div>
+      <div className={s.myCard} >
+        <div className={s.ppCard}>
+          <div className={s.CardHeader}>
+            <a href="#sparql" className={s.textMuted} onClick={() => this.handleClick("Sparql")}>
               <h5 className={s.cardTitle} align="center"> SPARQL </h5></a>
             <h6 className={s.cardSubTitile} align="center">
             You can use SPARQL language here to query n-triples.
@@ -573,7 +635,7 @@ class Sparql extends React.Component {
       <div className={s.myCard}>
         <div className={s.ppCard}>
           <div className={s.CardHeader}>
-            <a href="#link" className={s.textMuted} onClick={() => this.handleHomeClick("Link")}>
+            <a href="#link" className={s.textMuted} onClick={() => this.handleClick("Link")}>
               <h5 className={s.cardTitle} align="center">Visual Entity Linking </h5></a>
             <h6 className={s.cardSubTitile} align="center">
               You can experience more fine-grained visual entity linking than simple object detection.
@@ -585,7 +647,7 @@ class Sparql extends React.Component {
       <div className={s.myCard}>
         <div className={s.ppCard}>
           <div className={s.CardHeader}>
-            <a href="#query" className={s.textMuted} onClick={() => this.handleHomeClick("Query")}>
+            <a href="#query" className={s.textMuted} onClick={() => this.handleClick("Query")}>
               <h5 className={s.cardTitle} align="center">Query</h5></a>
             <h6 className={s.cardSubTitile} align="center">
             We provide two topics for you to understand how Richpedia Dataset works and know about relationships among the data.
@@ -594,6 +656,30 @@ class Sparql extends React.Component {
           </div>
         </div>
         </div>
+        <div className={s.myCard}>
+        <div className={s.ppCard}>
+          <div className={s.CardHeader}>
+            <a href="#visual" className={s.textMuted} onClick={() => this.handleClick("Visual")}>
+              <h5 className={s.cardTitle} align="center">Visualization</h5></a>
+            <h6 className={s.cardSubTitile} align="center">
+              We provide visualization tools to show our knowledge graph.
+                </h6>
+            <center><img className={s.cardsImg} width="80%" src="visual.png" /></center>
+          </div>
+        </div>
+      </div>
+      <div className={s.myCard}>
+        <div className={s.ppCard}>
+          <div className={s.CardHeader}>
+            <a href="#visual" className={s.textMuted} onClick={() => this.handleClick("Relation")}>
+              <h5 className={s.cardTitle} align="center">Relation Extraction</h5></a>
+            <h6 className={s.cardSubTitile} align="center">
+            You can experience scene graph generation by uploading images.
+                </h6>
+            <center><img className={s.cardsImg} width="80%" src="relation.png" /></center>
+          </div>
+        </div>
+      </div>
     </div>);
   }
 
@@ -640,13 +726,30 @@ class Sparql extends React.Component {
         </div>
       );
     }
-    else {
+    else if (current === 'Query'){
       return (<div>
         <div>{this.getNavigator()}</div>
         <div className={s.root}>
           {this.getDataset()}
         </div>
-      </div>)
+      </div>);
+    }
+    else if (current === 'Visual'){
+      return(<div>
+        <div>{this.getNavigator()}</div>
+        <div className={s.root}>
+          {this.getVisualization()}
+        </div>
+      </div>);
+    }
+    else{
+      return(<div>
+        <div>{this.getNavigator()}</div>
+        <div className={s.root}>
+        <h1 className={s.title}>Relation Extraction</h1>
+          {this.getRelation()}
+        </div>
+      </div>);
     }
   };
 

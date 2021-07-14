@@ -30,7 +30,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Record } from 'web-dev-server/build/lib/Applications/Registers/Record';
 
 import { TrafficRounded } from '@material-ui/icons';
-import se from './Uploader.css';
+import se from './Relation.css';
 
 const { TextArea } = Input;
 const { Dragger } = Upload;
@@ -51,13 +51,18 @@ const props = {
   },
 };
 
-class Uploader extends React.Component {
+const img_json = {"39497":[['1_man', 'watching', '0_man', 0.4482111632823944], ['0_man', 'watching', '1_man', 0.3724079132080078], ['2_man', 'watching', '0_man', 0.3168467879295349], ['0_man', 'watching', '2_man', 0.2946265637874603], ['1_man', 'watching', '2_man', 0.27798575162887573], ['2_man', 'watching', '1_man', 0.26383092999458313]],
+"38454":[['1_man', 'watching', '2_man', 6.591844936565394e-08], ['0_man', 'near', '2_man', 5.996656682327739e-08], ['2_man', 'near', '0_man', 3.932704117914909e-08], ['2_man', 'near', 
+'1_man', 1.4355022059930889e-08], ['1_man', 'near', '0_man', 2.494528583696365e-09], ['0_man', 'near', '1_man', 2.3433930351757226e-09]],"47082":[['0_man', 'watching', '1_man', 0.3669835925102234], ['1_man', 'looking at', '0_man', 0.31729164719581604]],"47259":[['1_man', 'near', '0_woman', 4.674620413425146e-06], ['0_woman', 'near', '1_man', 1.6911142211029073e-06]]};
+
+class Relation extends React.Component {
   state = {
     src:
       'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
     resultSrc: '',
     resultEntity: [],
     resultPosition: [],
+    resultJson:[],
     showDetect: false,
     showLink: false,
     showTest: false,
@@ -74,44 +79,53 @@ class Uploader extends React.Component {
     this.setState({
       showTest: false,
       uploading: true,
-      filename: name,
+      filename: `${name}.jpg`,
     });
-    const obj = this;
-    const formData = new FormData();
-    formData.append('fileName', name);
-    const data = formData;
-    $.ajax({
-      url: '/api/Example/',
-      data,
-      type: 'Post',
-      dataType: 'json',
-      cache: false, // 上传文件无需缓存
-      processData: false, // 用于对data参数进行序列化处理 这里必须false
-      contentType: false, // 必须
-      success(result) {
-        console.log('测试已经连接');
-        console.log(obj);
-        obj.setState({
-          src: result.img,
-          resultSrc: result.img_wbb,
-          value: result.wikiCap,
-          fall:
-            'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
-          uploading: false,
-          showPreview: true
-        });
-        message.success('测试成功');
-        console.log(obj.state.filename);
-      },
-      error(error) {
-        console.log('测试出现错误');
-        console.log(error);
-        message.error('测试出错');
-        obj.setState({
-          uploading: false,
-        });
-      },
+    this.setState({
+      src:`imgs_r/${name}.jpg`,
+      resultSrc:`imgs_r/${name}_detect.jpg`,
+      fall: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+      uploading: false,
+      resultJson: img_json[name],
+      showPreview:true
     });
+    console.log(this.state.resultSrc)
+    console.log(this.state.resultJson)
+    // const obj = this;
+    // const formData = new FormData();
+    // formData.append('fileName', name);
+    // const data = formData;
+    // $.ajax({
+    //   url: '/api/Example/',
+    //   data,
+    //   type: 'Post',
+    //   dataType: 'json',
+    //   cache: false, // 上传文件无需缓存
+    //   processData: false, // 用于对data参数进行序列化处理 这里必须false
+    //   contentType: false, // 必须
+    //   success(result) {
+    //     console.log('测试已经连接');
+    //     console.log(obj);
+    //     obj.setState({
+    //       src: result.img,
+    //       resultSrc: result.img_wbb,
+    //       value: result.wikiCap,
+    //       fall:
+    //         'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+    //       uploading: false,
+    //     });
+    //     message.success('测试成功');
+    //     console.log(obj.state.filename);
+    //   },
+    //   error(error) {
+    //     console.log('测试出现错误');
+    //     console.log(error);
+    //     message.error('测试出错');
+    //     obj.setState({
+    //       uploading: false,
+    //     });
+    //   },
+    // });
   };
 
   getTest() {
@@ -127,8 +141,8 @@ class Uploader extends React.Component {
           <Row gutter={24}>
             <Col span={6}>
               <Card title="Ex 1" bordered>
-                <Image src="data/imgs/21717.jpg" fallback={this.state.fall} />
-                <p style={{fontSize:'5px'}}>Francis Condon in the early 20th Century</p>
+                <Image src="imgs_r/39497.jpg" fallback={this.state.fall} />
+                {/* <p style={{fontSize:'5px'}}>Francis Condon in the early 20th Century</p> */}
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -136,7 +150,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('21717.jpg');
+                    this.sendExample('39497');
                   }}
                 >
                   Test
@@ -145,8 +159,7 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 2" bordered>
-                <Image src="data/imgs/39497.jpg" fallback={this.state.fall} />
-                <p style={{fontSize:'5px'}}>Bush (left) with Harry S. Truman (center) and James B. Conant (right)</p>
+                <Image src="imgs_r/38454.jpg" fallback={this.state.fall} />
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -154,7 +167,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('39497.jpg');
+                    this.sendExample('38454');
                   }}
                 >
                   Test
@@ -163,8 +176,7 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 3" bordered>
-                <Image src="data/imgs/27515.jpg" fallback={this.state.fall} />
-                <p style={{fontSize:'5px'}}>George, Lord Bingham, at age 14</p>
+                <Image src="imgs_r/47082.jpg" fallback={this.state.fall} />
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -172,7 +184,7 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('27515.jpg');
+                    this.sendExample('47082');
                   }}
                 >
                   Test
@@ -181,8 +193,7 @@ class Uploader extends React.Component {
             </Col>
             <Col span={6}>
               <Card title="Ex 4" bordered>
-                <Image src="data/imgs/15111.jpg" fallback={this.state.fall} />
-                <p style={{fontSize:'5px'}}>Chiezō Kataoka in the poster for Bloody Spear at Mount Fuji (1955).</p>
+                <Image src="imgs_r/47259.jpg" fallback={this.state.fall} />
                 <Button
                   type="primary"
                   style={{ margin: '3px auto' }}
@@ -190,14 +201,14 @@ class Uploader extends React.Component {
                   size="small"
                   shape="round"
                   onClick={() => {
-                    this.sendExample('15111.jpg');
+                    this.sendExample('47259');
                   }}
                 >
                   Test
                 </Button>
               </Card>
             </Col>
-          </Row>
+          {/* </Row>
           <Row gutter={24}>
             <Col span={6}>
               <Card title="Ex 5" bordered>
@@ -270,7 +281,7 @@ class Uploader extends React.Component {
                   Test
                 </Button>
               </Card>
-            </Col>
+            </Col> */}
           </Row>
         </div>
       </Modal>
@@ -390,6 +401,18 @@ class Uploader extends React.Component {
     });
   };
 
+  handleRelation = () => {
+    console.log(this.state);
+    if (this.state.filename === '') {
+      console.log('文件为空');
+      message.error('请上传文件');
+      return false;
+    }
+    this.setState({
+      showLink: true
+    })
+  }
+
   handleLink = () => {
     console.log(this.state);
     if (this.state.filename === '') {
@@ -464,21 +487,21 @@ class Uploader extends React.Component {
         >
           <input type="file" id="file" onChange={this.handleFile} />
         </Button> */}
-        <Button
+        {/* <Button
           type="primary"
           shape="round"
           style={{ margin: '0 5px 0 0' }}
           onClick={this.handleDetect}
         >
           Object Detection
-        </Button>
+        </Button> */}
         <Button
           type="primary"
           shape="round"
           style={{ margin: '0 5px 0 5px' }}
-          onClick={this.handleLink}
+          onClick={this.handleRelation}
         >
-          Entity Linking
+          Relation Extraction
         </Button>
         <Button
           type="primary"
@@ -519,13 +542,13 @@ class Uploader extends React.Component {
     return (
       <div
         style={{
-          height: '580px',
+          height: '450px',
           width: '900px',
           borderRadius: '5px',
           border: '1px solid black',
         }}
       >
-        <h2
+        {/* <h2
           style={{
             margin: '10px 20px',
             fontSize: '24px',
@@ -542,7 +565,7 @@ class Uploader extends React.Component {
           onChange={this.onChange}
           placeholder="Please enter the caption"
           autoSize={{ minRows: 3, maxRows: 9 }}
-        />
+        /> */}
         <h2
           style={{
             margin: '10px 20px',
@@ -727,6 +750,88 @@ class Uploader extends React.Component {
 
   reCanvas = record => {};
 
+  getRelation() {
+    const columns = [
+      {
+        title: 'Entity',
+        dataIndex: 'entity',
+        key: 'entity',
+      },
+      {
+        title: 'Relation',
+        dataIndex: 'relation',
+        key: 'relation',
+      },
+      {
+        title: 'Entity2',
+        dataIndex: 'entity2',
+        key: 'entity2',
+      },
+      // {
+      //   title: 'Score',
+      //   dataIndex: 'score',
+      //   key: 'score',
+      // },
+    ];
+    const data = [];
+    for (let i = 0; i < this.state.resultJson.length; i++) {
+      let entity = this.state.resultJson[i][0];
+      let relation = this.state.resultJson[i][1];
+      let entity2 = this.state.resultJson[i][2];
+      let score = this.state.resultJson[i][3]
+      // for (let j = 0; j < 4; j++) {
+      //   position += `${this.state.resultPosition[i][j].toFixed(2)} `;
+      // }
+      // const confidence = this.state.resultPosition[i][4].toFixed(4);
+      data.push({
+        key: `'${i + 1}'`,
+        entity,
+        relation,
+        entity2,
+      });
+    }
+
+
+    return (
+      <Modal
+        width={1000}
+        title="Extraction Result"
+        visible={this.state.showLink}
+        onOk={this.handleLinkOk}
+        onCancel={this.handleLinkCancel}
+      >
+        <Image
+          width={300}
+          src={this.state.resultSrc}
+          fallback={this.state.fall}
+        />
+        {/* <canvas id="myCanvas" width="500" height="500" style="border: 0px"></canvas> */}
+        {/* <Table onRow={(record)=>{
+          console.log(record);
+        }} size='small' bordered columns={columns} dataSource={data} /> */}
+        <Table
+          onRow={record => {
+            return {
+              onClick: event => {}, // 点击行
+              onDoubleClick: event => {},
+              onContextMenu: event => {},
+              onMouseEnter: event => {
+                console.log(record);
+              }, // 鼠标移入行
+              onMouseLeave: event => {
+                console.log(record);
+              },
+            };
+          }}
+          size="small"
+          bordered
+          columns={columns}
+          dataSource={data}
+        />
+      </Modal>
+    );
+  }
+
   getLink() {
     const columns = [
       {
@@ -808,11 +913,11 @@ class Uploader extends React.Component {
         {this.getButton()}
         {this.getPreview()}
         {this.getDetect()}
-        {this.getLink()}
+        {this.getRelation()}
         {this.getTest()}
       </div>
     );
   }
 }
 
-export default withStyles(s)(Uploader);
+export default withStyles(s)(Relation);
