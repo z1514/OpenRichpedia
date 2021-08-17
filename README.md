@@ -36,13 +36,12 @@ richer visual queries and make multi-relational link predictions.
 
 # Download
 
-You can download parts of images and triples of relationship from here through Google Drive. Because the image entity folder is relatively large, we split it into three folders(Image1, Image2, Image3) for download.
+You can download images and triples of relationship from here through BaiduYun Drive. Because the image entity folder is relatively large, we split it into two parts(City&Sight, People) for download.
 ## Image
-#### [Image1](https://drive.google.com/open?id=1QVAUWf87v2Lct1YYlygOpphwE5TMlNBg)
-#### [Image2](https://drive.google.com/open?id=15aoYUdCB5_bhagz3TlbBhkA3MLGBJv9P)
-#### [Image3](https://drive.google.com/open?id=1TiATEauW91_ptJz4qCk0Kn1p_6gojXTf)
-## Json
-#### [Triples](https://drive.google.com/open?id=1iWRnsAybp6PY8aEtRZoAk1vvlcV1BnZO)
+#### [City&Sight](https://pan.baidu.com/s/1lt-SmWUX5GAmLRNWggDkXQ)
+#### [People](https://pan.baidu.com/s/1tUnmlA7Fb90pPZwhxy-jow#list/path=%2F)
+## NT Files
+#### [Triples](https://pan.baidu.com/s/1sndHDroLfx__f0mUjH1RGQ#list/path=%2F)
 # Friendly Link
 Our data uses other resources, so we make a statement here.
 *   [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) is becoming an increasingly important knowledge graph in the research community. We collect the KG entities from Wikidata as EKG in Richpedia.
@@ -60,15 +59,16 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 # Contact
 
-<li>Meng Wang <a href="mailto:meng.wang@seu.edu.cn">meng.wang@seu.edu.cn</a></li>
-
 <li>Qiushuo Zheng <a href="mailto:qs_zheng@seu.edu.cn">qs_zheng@seu.edu.cn</a></li>
 
 <li>Jianxiong Zheng <a href="mailto:2498973668@qq.com">zjx@seu.edu.cn</a></li>
 
+<li>Guilin Qi <a href="mailto:gqi@seu.edu.cn">gqi@seu.edu.cn</a></li>
+<li>Meng Wang <a href="mailto:meng.wang@seu.edu.cn">meng.wang@seu.edu.cn</a></li>
+
 # Update
 
-* ### V1.0
+* ### V2.0
 
   Add images and triples of relationship.
 
@@ -76,4 +76,4 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 [Github Pages](https://github.com/Mr-shuo/Richpedia_Website)
 
-[website](http://rich.wangmengsd.com/)
+[website](http://richpedia.cn/)

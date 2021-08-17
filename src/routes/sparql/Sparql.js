@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Uploader from '../../components/Uploader/Uploader';
 import Dataset from '../dataset/Dataset';
-import Visualization from '../visualization/Visualization';
+// import Visualization from '../visualization/Visualization';
 import Relation from '.../../components/Relation/Relation'
 import Nav from '../../components/Nav/Nav';
 // import ECharts from '../../components/ECharts/ECharts'
@@ -570,10 +570,10 @@ class Sparql extends React.Component {
           <a className={this.state.queryS} onClick={() => this.handleClick("Query")} href='#query'>Query
           </a>
         </li>
-        <li>
+        {/* <li>
           <a className={this.state.visualS} onClick={() => this.handleClick("Visual")} href='#visual'>Visualization
           </a>
-        </li>
+        </li> */}
         <li>
           <a className={this.state.relationS} onClick={() => this.handleClick("Relation")} href='#relation'>Relation
           </a>
@@ -590,14 +590,14 @@ class Sparql extends React.Component {
     return <Dataset />
   }
 
-  getVisualization = () => {
-    if(typeof document === 'undefined')
-    {
-      ;
-    }
-    else{
-    return <Visualization/>}
-  }
+  // getVisualization = () => {
+  //   if(typeof document === 'undefined')
+  //   {
+  //     ;
+  //   }
+  //   else{
+  //   return <Visualization/>}
+  // }
 
   getRelation = () => {
     return <Relation />
@@ -615,6 +615,19 @@ class Sparql extends React.Component {
             Tutorial will show how to use Richpedia.
             </h6>
             <center><img className={s.cardsImg} width="80%" src="tutorial.png" /></center>
+
+          </div>
+        </div>
+      </div>
+      <div className={s.myCard} >
+        <div className={s.ppCard}>
+          <div className={s.CardHeader}>
+            <a href="/ontology" className={s.textMuted}>
+              <h5 className={s.cardTitle} align="center"> Ontology </h5></a>
+            <h6 className={s.cardSubTitile} align="center">
+            The ontology of richpedia.
+            </h6>
+            <center><img className={s.cardsImg} width="80%" src="ontology.png" /></center>
 
           </div>
         </div>
@@ -656,7 +669,7 @@ class Sparql extends React.Component {
           </div>
         </div>
         </div>
-        <div className={s.myCard}>
+        {/* <div className={s.myCard}>
         <div className={s.ppCard}>
           <div className={s.CardHeader}>
             <a href="#visual" className={s.textMuted} onClick={() => this.handleClick("Visual")}>
@@ -667,7 +680,7 @@ class Sparql extends React.Component {
             <center><img className={s.cardsImg} width="80%" src="visual.png" /></center>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={s.myCard}>
         <div className={s.ppCard}>
           <div className={s.CardHeader}>
@@ -738,7 +751,7 @@ class Sparql extends React.Component {
       return(<div>
         <div>{this.getNavigator()}</div>
         <div className={s.root}>
-          {this.getVisualization()}
+          {/* {this.getVisualization()} */}
         </div>
       </div>);
     }
